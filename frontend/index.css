@@ -1,0 +1,14 @@
+.content, .controller {
+    height: -webkit-fill-available;
+}
+
+.box__dragndrop,
+.box__uploading,
+.box__success,
+.box__error {
+    display: none;
+}
+
+.controller{
+    margin-top: 10px;
+}

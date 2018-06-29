@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+
+        <link rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="index.css" rel="stylesheet">
+
+
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/angular/angular.min.js"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Nucont.Teste</title>
+    </head>
+    <body>
+        <nav class="blue darken-4">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">Nucont.Teste</a>
+            </div>
+        </nav>
+        <div ng-app="FileApp" class="content row">
+            <div class="controller row col s10 offset-s1" ng-controller="FileController" ng-init="initController()">
+                <div class="col s12">
+                    <form class="box row">
+                        <div class="box__input col s8">
+                            <input class="box__file" type="file" import-sheet-js="" multiple="false" name="file" id="file" />
+                        </div>
+                        <a class="col s4 btn blue darken-2" ng-click="importFile()">Import</a>
+                    </form>
+                </div>
+                <div class="col s12">
+                    <table class="striped highlight responsive">
+                        <thead>
+                            <tr>
+                                <th>Classificador</th>
+                                <th>Código</th>
+                                <th>Descrição</th>
+                                <th>Saldo Anterior</th>
+                                <th>Saldo Atual</th>
+                                <th>Mudou?</th>
+                            </tr>
+                        </thead>
+                
+                        <tbody>
+                            <tr ng-repeat="val in data">
+                                <td>{{val.classificador}}</td>
+                                <td>{{val.codigo}}</td>
+                                <td>{{val.descricao}}</td>
+                                <td>{{val.saldoAnterior}}</td>
+                                <td>{{val.saldoAtual}}</td>
+                                <td>{{val.mudou}}</td>
+                            </tr>
+                        </tbody>
+                    </table>        
+                    <div class="progress blue darken-4" ng-if="loading">
+                        <div class="indeterminate blue darken-1"></div>
+                    </div>        
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="ConnectionUtilities.js"></script>
+        <script type="text/javascript" src="FileController.js"></script>
+        <script type="text/javascript" src="index.module.js"></script>
+
+        <script lang="javascript" src="bower_components/js-xlsx/dist/xlsx.full.min.js"></script>
+
+
+        <script src="bower_components/materialize/dist/js/materialize.min.js"></script>
+    </body>
